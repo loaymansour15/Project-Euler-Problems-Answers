@@ -1,0 +1,50 @@
+package code;
+
+/**
+ *
+ * @author loay
+ */
+public class Code {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        long start = System.currentTimeMillis();
+        
+        int count = 1;
+        int prime = 2;
+        while(count != 10001){
+            
+            prime = nextPrime(prime); 
+            count++;
+        }
+        
+        System.out.println(prime);
+        System.out.println("Program Finished in: " + (System.currentTimeMillis() - start) + " milli Sec");
+
+    }
+    
+    private static int nextPrime(int p){
+        
+        boolean notPrime = false;
+        while(!notPrime){
+            
+            p++;
+            int divis = 0;
+            for(int i = 2; i <= (int)Math.sqrt(p); i++){
+                if(p % i == 0){
+                    divis++;
+                    break;
+                }
+            }
+            
+            if(divis == 0)
+                notPrime = true;
+            
+        }
+        return p;
+    }
+
+}

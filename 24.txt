@@ -1,0 +1,25 @@
+import itertools
+
+
+# Main
+def run():
+
+    n = 1000000 - 1
+
+    l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    ans = list(itertools.permutations(l))
+
+    ans1 = ""
+    for i in range(len(ans[n])):
+        ans1 += str(ans[n][i])
+
+    print(ans1)
+
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

@@ -1,0 +1,30 @@
+
+
+# Main
+def run():
+    arr = []
+    f = open('somefile.txt')
+    arr = f.readline().split(',')
+
+    arr.sort()
+
+    ans = 0
+    size = len(arr)
+    for i in range(size):
+        arr[i] = arr[i].upper().replace('"', '')
+        temp = 0
+        for c in arr[i]:
+            temp += ord(c) - ord('A') + 1
+
+        ans += temp * (i+1)
+
+    print(ans)
+
+
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

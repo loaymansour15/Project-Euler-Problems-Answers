@@ -1,0 +1,48 @@
+
+ans = 0
+tempSum = 0
+n = 0
+paths = 0
+
+
+def solve(adjList, i, j):
+    global ans
+    global n
+    global tempSum
+    global paths
+
+    if i >= n:
+        paths += 1
+        return
+
+    for x in range(j, min(j+2, len(adjList[i]))):
+        tempSum += adjList[i][x]
+        solve(adjList, i+1, x)
+        if tempSum > ans:
+            ans = tempSum
+        tempSum -= adjList[i][x]
+
+    return
+
+# Main
+def run():
+    global ans
+    global n
+    global paths
+
+    n = 15
+    adjList = []
+    for i in range(n):
+        temp = list(map(int, input().split()))
+        adjList.append(temp)
+
+    solve(adjList, 0, 0)
+    print("Ans = ", ans)
+    print("No. of Routes :", paths, "routes.")
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

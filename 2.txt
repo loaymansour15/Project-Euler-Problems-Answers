@@ -1,0 +1,16 @@
+ans = []
+
+x, y = 0, 1
+i = 0
+
+it = 0
+while i < 4000000:
+    i = x + y
+    x = y
+    y = i
+    if i % 2 == 0:
+        ans.append(i)
+    it += 1
+
+    
+print(sum(ans))

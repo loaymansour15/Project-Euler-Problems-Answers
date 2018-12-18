@@ -1,0 +1,17 @@
+import datetime as timer
+
+#program excution time
+start = timer.datetime.now()
+
+sum1 = 1
+for i in range(2,101):
+    sum1 += (i*i)
+
+sum2 = (100*101)//2
+sum2 *= sum2
+
+print(sum2 - sum1)
+
+#program excution time
+end = timer.datetime.now() - start
+print("Program run in", end.microseconds, "micro sec.")

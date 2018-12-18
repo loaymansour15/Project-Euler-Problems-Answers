@@ -1,0 +1,21 @@
+import datetime as timer
+
+
+#program excution time
+start = timer.datetime.now()
+
+maxNum = 0
+for i in range(100,1000):
+    for j in range(100,1000):
+        num = i * j
+        arr = list(str(num))
+        first = arr[:3]
+        last = arr[3:6]
+        last.reverse()
+        if first == last and num > maxNum:
+            maxNum = num
+            print(i, j, num)
+
+#program excution time
+end = timer.datetime.now() - start
+print("Program run in", end.microseconds, "micro sec.")

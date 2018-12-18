@@ -1,0 +1,29 @@
+
+# Main
+def run():
+
+    n = 100
+
+    adjList = []
+
+    for i in range(n):
+        temp = list(map(int, input().split()))
+        adjList.append(temp)
+
+    for i in range(n-2, -1, -1):
+        for j in range(len(adjList[i])):
+            if adjList[i+1][j] > adjList[i+1][j+1]:
+                adjList[i][j] += adjList[i+1][j]
+            else:
+                adjList[i][j] += adjList[i+1][j+1]
+        del adjList[i+1]
+
+    print(adjList[0][0])
+
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

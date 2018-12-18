@@ -1,0 +1,20 @@
+import datetime as timer
+
+#program excution time
+start = timer.datetime.now()
+
+for i in range(20,10000000000):
+    found = False
+    for j in range(2,21):
+        if i % j != 0:
+            found = False
+            break
+        else:
+            found = True
+    if found == True:
+        print(i)
+        break
+
+#program excution time
+end = timer.datetime.now() - start
+print("Program run in", end.microseconds, "micro sec.")

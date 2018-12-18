@@ -1,0 +1,36 @@
+
+# Main
+def run():
+
+    monthsOfLeapYear = {'1': 31, '2': 29, '3': 31, '4': 30, '5': 31,
+                        '6': 30, '7': 31, '8': 31, '9': 30,
+                        '10': 31, '11': 30, '12': 31}
+
+    monthsOfNormalYear = {'1': 31, '2': 28, '3': 31, '4': 30, '5': 31,
+                          '6': 30, '7': 31, '8': 31, '9': 30,
+                          '10': 31, '11': 30, '12': 31}
+
+    weekDays = ['Fri', 'Sat', 'Sun', 'Mon', 'Tues', 'Wed', 'Thurs']
+    currDay = 3
+    currWeekDay = weekDays[currDay]
+
+
+    ans = 0
+    for y in range(1900, 2001):
+        tempYear = monthsOfLeapYear if y % 4 == 0 else monthsOfNormalYear
+        for m in range(1, 13):
+            maxDays = tempYear[str(m)]
+            for d in range(1, maxDays+1):
+                currDay = currDay % 7
+                currWeekDay = weekDays[currDay]
+                if currWeekDay == 'Sun' and d == 1 and y > 1900:
+                    ans += 1
+                currDay += 1
+    print(ans)
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

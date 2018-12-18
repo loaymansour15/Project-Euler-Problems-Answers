@@ -1,0 +1,69 @@
+import time
+from threading import Thread
+
+
+# start
+print("Program Started....")
+print("#################################################################\n")
+start = time.time()
+# program excution time
+##############################################################################
+##############################################################################
+##############################################################################
+
+def solve():
+    ans = [0]*2
+
+    i = 1
+    tri = 1
+    while ans[0] <= 500:
+        ans[0] = numOfFactors(tri)
+        i += 1
+        tri += i
+        print(ans[0])
+
+    ans[1] = tri - i
+    return ans
+
+def numOfFactors(num):
+
+    arr = dict()
+    x = 2
+    while num > 1:
+        if num % x == 0:
+            if x not in arr:
+                arr[x] = 1
+            else:
+                arr[x] += 1
+            num //= x
+            x = 2
+        else:
+            x += 1
+
+    ans = 1
+    for i in arr.values():
+        ans *= (i+1)
+
+    return ans
+
+
+
+# Main
+def main():
+    print(solve())
+# end main
+
+# Program Start
+if __name__ == "__main__":
+    main()
+
+
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+# program excution time
+end = time.time() - start
+print("\n#################################################################")
+print("Program Terminated && ===> run in", str(end), "seconds.")
+print("This Program was Developed by: Loay Mansour.")

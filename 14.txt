@@ -1,0 +1,65 @@
+import time
+from threading import Thread
+
+
+# start
+print("Program Started....")
+print("#################################################################\n")
+start = time.time()
+# program excution time
+##############################################################################
+##############################################################################
+##############################################################################
+
+#Dynamic programming solution (bottom-up)
+
+
+top = 1000000
+
+table = [(0,0)] * top
+
+
+def solve():
+
+    for i in range(1, top):
+        n = i
+        steps = 1
+        found = False
+        while n > 1:
+            if n % 2 == 0:
+                n //= 2
+            else:
+                n = 3 * n + 1
+            steps += 1
+            if n < top and table[n][1] != 0:
+                table[i] = (i, steps + table[n][1]-1)
+                found = True
+                break
+        if not found:
+            table[i] = (i, steps)
+
+
+# Main
+def main():
+
+    solve()
+
+    print(max(table, key=lambda x: x[1])[0])
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    main()
+
+
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+# program excution time
+end = time.time() - start
+print("\n#################################################################")
+print("Program Terminated && ===> run in", str(end), "seconds.")
+print("This Program was Developed by: Loay Mansour.")

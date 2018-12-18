@@ -1,0 +1,25 @@
+import math as m
+
+def isPrime(x):
+    div = 0
+    z = 2
+    isPrime = True
+    while z <= m.sqrt(x):
+        if x % z == 0:
+            isPrime = False
+            break
+        z += 1
+            
+    return isPrime
+
+ans = []
+x = 2
+num = 600851475143
+while num != 1:
+    while isPrime(x) and num % x == 0:
+        ans.append(x)
+        num = num // x
+    else:
+        x += 1
+    
+print(max(ans))

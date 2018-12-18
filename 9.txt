@@ -1,0 +1,39 @@
+package code;
+
+/**
+ *
+ * @author loay
+ */
+public class Code {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        long start = System.currentTimeMillis();
+        
+        boolean done = false;
+        
+        for(int a = 1; a <= 1000; a++){
+            
+            for(int b = a+1; b <= 1000; b++){
+                
+                int c = 1000 - b - a;
+                
+                if(a*a + b*b == c*c){
+                    done = true;
+                    System.out.println(a*b*c);
+                    break;
+                }
+            }
+            if(done){
+                break;
+            }
+        }
+        
+        System.out.println("Program Finished in: " + (System.currentTimeMillis() - start) + " milli Sec");
+
+    }
+
+}

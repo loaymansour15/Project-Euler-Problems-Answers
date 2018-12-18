@@ -1,0 +1,41 @@
+
+
+def is_abundant(x, start=1):
+    ans = 0
+    for i in range(start, x):
+        if x % i == 0:
+            ans += i
+    return ans > x
+
+# Main
+def run():
+
+    n = 28123
+    abundantNums = {}
+    for i in range(12, n):
+        if is_abundant(i):
+            abundantNums[i] = 1
+
+    print(abundantNums)
+
+    sum = 0
+    for i in range(1, n):
+        ok = True
+        for k, v in abundantNums.items():
+            if k < i:
+                if i-k in abundantNums:
+                    ok = False
+                    break
+            else:
+                break
+        if ok:
+            sum += i
+    print(sum)
+
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()

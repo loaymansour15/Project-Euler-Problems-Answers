@@ -1,0 +1,55 @@
+import time
+from threading import Thread
+
+
+# start
+print("Program Started....")
+print("#################################################################\n")
+start = time.time()
+# program excution time
+##############################################################################
+##############################################################################
+##############################################################################
+
+amicable = [-1] * 1000000000
+
+# Main
+def main():
+    n = 10000
+
+    ans = 0
+    for a in range(1, n):
+        b = 0
+        tempa = 0
+        if amicable[a] == -1:
+            for j in range(1, a):
+                if a % j == 0:
+                    b += j
+            amicable[a] = b
+        if amicable[b] == -1:
+            for j in range(1, b):
+                if b % j == 0:
+                    tempa += j
+            amicable[b] = tempa
+        if tempa == a:
+            ans += a + b
+
+    print(ans)
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    main()
+
+
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+# program excution time
+end = time.time() - start
+print("\n#################################################################")
+print("Program Terminated && ===> run in", str(round(end)), "seconds.")
+print("This Program was Developed by: Loay Mansour.")

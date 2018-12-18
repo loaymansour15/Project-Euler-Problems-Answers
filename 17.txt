@@ -1,0 +1,57 @@
+
+def digit(l):
+    ans = "1"
+    i = 1
+    while i < l:
+        ans += "0"
+        i += 1
+
+    return int(ans)
+
+# Main
+def run():
+    a1 = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    a2 = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    a3 = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    a4 = "hundred"
+    a5 = "thousand"
+
+    ans = 0
+    start = 999
+    end = 1251
+    while start <= end:
+        num = start
+        tempAns = ""
+        while num > 0:
+            numLen = len(str(num))
+            lenT = digit(numLen)
+            d = num // lenT
+            if numLen == 1:
+                tempAns += a1[d] + " "
+                break
+            elif numLen == 2 and num <= 19:
+                tempAns += a2[num-10] + " "
+                break
+            elif numLen == 2 and num >= 20:
+                tempAns += a3[d-2] + " "
+            elif numLen == 3:
+                tempAns += a1[d] + " " + a4 + " "
+                if num % lenT != 0:
+                    tempAns += "and "
+            elif numLen == 4:
+                tempAns += a1[d] + " " + a5 + " "
+                if num % lenT != 0:
+                    tempAns += "and "
+            num %= lenT
+        ans += len(tempAns)
+        print(tempAns)
+        start += 1
+
+    print(ans)
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()
