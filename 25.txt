@@ -1,0 +1,30 @@
+
+
+def solve(t1, t2):
+    arr = [0] * 2
+    arr[0] = t1
+    arr[1] = t2
+
+    ok = False
+    i = 2
+    while not ok:
+        x = arr[i-2] + arr[i-1]
+        if len(str(x)) >= 1000:
+            print(i)
+            ok = True
+        arr.append(x)
+        i += 1
+
+
+# Main
+def run():
+    #t1, t2, n = map(int, input().split())
+    solve(1, 1)
+
+
+# end main
+
+
+# Program Start
+if __name__ == "__main__":
+    run()
